@@ -43,14 +43,15 @@
             };
             var temp=0.0;
             var sk = "fd040f3f7babd0450891bbccc99b366e";
-            var url = "https://api.darksky.net/forecast/fd040f3f7babd0450891bbccc99b366e/"+pos.lat+","+pos.lng+"";
+            var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/fd040f3f7babd0450891bbccc99b366e/"+pos.lat+","+pos.lng+"";
             $.getJSON(url, {datatype:"jsonp"}).done(function(response) {
 
-              console.log("yoyo"+response.currently.temperature); 
+              temp=response.currently.temperature;
+              infoWindow.setContent(temp+" "+response.currently.summary); 
             });
             console.log(temp);
             infoWindow.setPosition(pos);
-            infoWindow.setContent(temp);
+            
             infoWindow.open(map);
             map.setCenter(pos);
           }, function() {

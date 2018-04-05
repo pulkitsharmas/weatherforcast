@@ -1,2 +1,2 @@
 # weatherforcast
-weather forcast at current brower location
+weather forcast at current browser location
